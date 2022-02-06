@@ -21,13 +21,18 @@ class ChairController extends Controller
 
     public function store(Request $request)
     {
+        $validate = $request->validate([
+            'name' => 'required|max:255',
+            'merk' => 'required|max:255',
+            'stok' => 'required|numeric',
+        ]);
         $chair = new Chair();
         $chair->name = $request->name;
         $chair->merk = $request->merk;
         $chair->stok = $request->stok;
         $chair->save();
 
-        return redirect('/chair');
+        return redirect('/chair')->with('success', 'Data berhasil ditambahkan');
     }
 
     public function show($id)
@@ -40,7 +45,7 @@ class ChairController extends Controller
     {
         $chair = Chair::find($id);
         $chair->delete();
-        return redirect('/chair');
+        return redirect('/chair')->with('success', 'Data berhasil dihapus');
     }
 
     public function edit($id)
@@ -51,12 +56,17 @@ class ChairController extends Controller
 
     public function update($id, Request $request)
     {
+        $validate = $request->validate([
+            'name' => 'required|max:255',
+            'merk' => 'required|max:255',
+            'stok' => 'required|numeric',
+        ]);
         $chair = Chair::find($id);
         $chair->name = $request->name;
         $chair->merk = $request->merk;
         $chair->stok = $request->stok;
         $chair->save();
 
-        return redirect('/chair');
+        return redirect('/chair')->with('success', 'Data berhasil diubah');
     }
 }

@@ -11,6 +11,11 @@
 
     <h2>chair store</h2>
     <a class="btn btn-primary" href="chair/create">add</a>
+    @if (session('success'))
+        <div class="alert alert-success" role="alert">
+            {{ session('success') }}
+        </div>
+    @endif
     <table class="table">
         <thead>
             <tr>

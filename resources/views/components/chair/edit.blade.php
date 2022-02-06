@@ -15,20 +15,47 @@
         @method('PUT')
         <div class="form-group">
             <label for="name" class="form-label">name</label>
-            <input name="name" type="text" class="form-control" id="name" placeholder="name .."
-            value="{{ $chair->name }}">
+            <input 
+                name="name" 
+                type="text" 
+                class="form-control" 
+                id="name" 
+                placeholder="name .."
+                value="{{ $chair->name }}"
+                required>
+            @error('name')
+                <div class="text-danger">{{ $message }}</div>
+            @enderror
         </div>
         
         <div class="form-group">
             <label for="merk" class="form-label">merk</label>
-            <input name="merk" type="text" class="form-control" id="merk" placeholder="merk .."
-            value="{{ $chair->merk }}">
+            <input 
+                name="merk" 
+                type="text" 
+                class="form-control" 
+                id="merk" 
+                placeholder="merk .."
+                value="{{ $chair->merk }}"
+                required>
+            @error('merk')
+                <div class="text-danger">{{ $message }}</div>
+            @enderror
         </div>
         
         <div class="form-group">
             <label for="stok" class="form-label">stok</label>
-            <input name="stok" type="text" class="form-control" id="stok" placeholder="stok .."
-            value="{{ $chair->stok }}">
+            <input 
+                name="stok" 
+                type="text" 
+                class="form-control" 
+                id="stok" 
+                placeholder="stok .."
+                value="{{ $chair->stok }}"
+                required>
+            @error('stok')
+                <div class="text-danger">{{ $message }}</div>
+            @enderror
         </div>
         <button class="btn btn-primary" type="submit">save update</button>
     </form>

@@ -14,15 +14,51 @@
         @csrf
         <div class="mb-3">
             <label for="name" class="form-label">name</label>
-            <input name="name" type="text" class="form-control" id="name" placeholder="name ..">
+            <input 
+                name="name" 
+                type="text" 
+                class="form-control" 
+                id="name" 
+                placeholder="name .." 
+                value="{{ old('name') }}"
+                required>
+            @error('name')
+                <div class="text-danger" role="alert">
+                    {{ $message }}
+                </div>
+            @enderror
         </div>
         <div class="mb-3">
             <label for="merk" class="form-label">merk</label>
-            <input name="merk" type="text" class="form-control" id="merk" placeholder="merk ..">
+            <input 
+                name="merk" 
+                type="text" 
+                class="form-control" 
+                id="merk" 
+                placeholder="merk .." 
+                value="{{ old('merk') }}"
+                required>
+            @error('merk')
+                <div class="text-danger" role="alert">
+                    {{ $message }}
+                </div>
+            @enderror
         </div>
         <div class="mb-3">
             <label for="stok" class="form-label">stok</label>
-            <input name="stok" type="number" class="form-control" id="stok" placeholder="stok ..">
+            <input 
+                name="stok" 
+                type="number" 
+                class="form-control" 
+                id="stok" 
+                placeholder="stok .." 
+                value="{{ old('stok') }}"
+                required>
+            @error('stok')
+                <div class="text-danger" role="alert">
+                    {{ $message }}
+                </div>
+            @enderror
         </div>
         <div class="mb-3">
             <button class="btn btn-primary">save</button>
